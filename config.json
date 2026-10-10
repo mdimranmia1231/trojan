@@ -1,0 +1,46 @@
+{
+  "log": { "loglevel": "none" },
+  "inbounds": [
+    {
+      "port": 8080,
+      "protocol": "trojan",
+      "settings": {
+        "clients": [
+          { "password": "IMRANBRO" }
+        ],
+        "fallbacks": [
+          { "dest": 8081 }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/friendchircle2/nettricts1/imranbro12"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      }
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 8081,
+      "protocol": "http",
+      "settings": {
+        "response": {
+          "status": 200,
+          "headers": { "Content-Type": ["text/plain"] },
+          "body": "imranbro"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": { "domainStrategy": "UseIPv4" }
+    }
+  ]
+}
